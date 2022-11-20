@@ -47,9 +47,24 @@
                 <a>Bắt Đầu</a>
             </li>
             <li class="scroll-to-link" data-target="content-get-characters">
-                <a>Kiểm Tra Số Lượt Request</a>
+                <a>Kiểm Tra Api Key</a>
             </li>
-            <li class="scroll-to-link" data-target="content-errors">
+            <li class="scroll-to-link" data-target="content-images"> 
+                <a>Hình Ảnh</a>
+            </li>
+            <li class="scroll-to-link" data-target="content-text"> 
+                <a>Chữ</a>
+            </li>
+            <li class="scroll-to-link" data-target="content-music"> 
+                <a>Nhạc</a>
+            </li>
+            <li class="scroll-to-link" data-target="content-mcstatus"> 
+                <a>Trạng Thái SRV Minecraft</a>
+            </li>
+            <li class="scroll-to-link" data-target="content-geoip"> 
+                <a>Xem Thông Tin Của IP</a>
+            </li>
+            <li class="scroll-to-link" data-target="content-errors"> 
                 <a>Các Mã Trạng Thái</a>
             </li>
         </ul>
@@ -59,11 +74,11 @@
     <div class="content-code"></div>
     <div class="content">
         <div class="overflow-hidden content-section" id="content-get-started">
-            <h1>Get started</h1>
+            <h1>Bắt Đầu</h1>
             <pre>
-    URL API
+    URL API: 
 
-    https://api.shinthl09.repl.co/apikey/checkrequest
+    https://api.shinthl09.repl.co/
                 </pre>
             <p>
                 Một Api Method GET Giúp Việc Làm Bot Messager, Bot Discord, Website Một Cách Dễ Dàng Hơn 
@@ -72,24 +87,31 @@
                 Bạn Có Thể Tạo Một <strong>API key</strong> Free 100 Request. Hoặc Liên Hệ <a href="https://www.facebook.com/thl.0911">FB: Hữu Lộc</a> Để Mua API Key Prenium.
             </p>
             <p>
-                Tạo <strong>API key</strong> Free <a href="https://www.facebook.com/thl.0911">Tại Đây</a>
+                Tạo <strong>API key</strong> Free <a href="https://api.shinthl09.repl.co/apikey?type=register&apitype=free">Tại Đây</a>
             </p>
         </div>
         <div class="overflow-hidden content-section" id="content-get-characters">
-            <h2>kiểm tra số lượt request</h2>
+            <h2>kiểm tra api key</h2>
             <pre><code class="bash">
-# Mẫu
+# Mẫu Kiểm Tra Api
 curl \
-https://api.shinthl09.repl.co/apikey/checkrequest?apikey=test \
--F 'API_KEY = your_api_key' \
+https://api.shinthl09.repl.co/apikey?type=checker&apikey=THLFree_7441046024 \
+-F 'apikey = your_api_key' \
                 </code></pre>
             <p>
                 METHOD GET :<br>
-                <code class="higlighted break-word">https://api.shinthl09.repl.co/apikey/checkrequest</code>
+                <code class="higlighted break-word">https://api.shinthl09.repl.co/apikey?type=checker</code>
             </p>
             <br>
             <pre><code class="json">
-Kết Quả :
+# Kết Quả :
+
+{   
+    "status": "200",
+    "apikey": "THLFree_7441046024",
+    "request": 100,
+    "type": "free"
+}
 
 
                 </code></pre>
@@ -107,6 +129,327 @@ Kết Quả :
                     <td>apikey</td>
                     <td>String</td>
                     <td>API Key Của Bạn.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section" id="content-images">
+            <h2>hình ảnh</h2>
+            <pre><code class="bash">
+# Mẫu Hình Ảnh
+curl \
+https://api.shinthl09.repl.co/images?apikey=THLFree_7441046024&type=phongcanh \
+-F 'apikey = your_api_key' \
+-F 'type = type' \
+                </code></pre>
+            <p>
+                METHOD GET :<br>
+                <code class="higlighted break-word">https://api.shinthl09.repl.co/images</code>
+            </p>
+            <br>
+            <pre><code class="json">
+# Kết Quả :
+
+{   
+    "status": "200",
+    "data": "https://i.imgur.com/g8QllQs.jpeg",
+    "count": 111,
+    "author": "ShinTHL09, Nlam"
+}
+
+
+                </code></pre>
+                <h4>Bảng Thông Tin Cần Gửi</h4>
+            <table class="central-overflow-x">
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Loại</th>
+                    <th>Nội Dung</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>apikey</td>
+                    <td>String</td>
+                    <td>API Key Của Bạn.</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>String</td>
+                    <td>Loại Ảnh.</td>
+                </tr>
+                </tbody>
+            </table>
+            <h4>Các Loại Ảnh</h4>
+            <table class="central-overflow-x">
+                <thead>
+                <tr>
+                    <th>Loại</th>
+                    <th>Nội Dung</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>phongcanh</td>
+                    <td>Tranh Phong Cảnh Anime</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section" id="content-text">
+            <h2>chữ</h2>
+            <pre><code class="bash">
+# Mẫu Chữ
+curl \
+https://api.shinthl09.repl.co/text?apikey=THLFree_7441046024&type=thinh \
+-F 'apikey = your_api_key' \
+-F 'type = type' \
+                </code></pre>
+            <p>
+                METHOD GET :<br>
+                <code class="higlighted break-word">https://api.shinthl09.repl.co/text</code>
+            </p>
+            <br>
+            <pre><code class="json">
+# Kết Quả :
+
+{   
+    "status": "200",
+    "data": "Bầu trời xanh, làn mây trắng. Anh yêu nắng hay yêu em?.",
+    "author": "ShinTHL09, Nlam"
+}
+
+
+                </code></pre>
+                <h4>Bảng Thông Tin Cần Gửi</h4>
+            <table class="central-overflow-x">
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Loại</th>
+                    <th>Nội Dung</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>apikey</td>
+                    <td>String</td>
+                    <td>API Key Của Bạn.</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>String</td>
+                    <td>Loại Chữ.</td>
+                </tr>
+                </tbody>
+            </table>
+            <h4>Các Loại Chữ</h4>
+            <table class="central-overflow-x">
+                <thead>
+                <tr>
+                    <th>Loại</th>
+                    <th>Nội Dung</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>thinh</td>
+                    <td>Thính</td>
+                </tr>
+                <tr>
+                    <td>cadao</td>
+                    <td>Ca Dao Tục Ngữ Việt Nam</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section" id="content-music">
+            <h2>nhạc</h2>
+            <pre><code class="bash">
+# Mẫu Nhạc
+curl \
+https://api.shinthl09.repl.co/music?apikey=THLFree_7441046024&type=chill \
+-F 'apikey = your_api_key' \
+-F 'type = type' \
+                </code></pre>
+            <p>
+                METHOD GET :<br>
+                <code class="higlighted break-word">https://api.shinthl09.repl.co/music</code>
+            </p>
+            <br>
+            <pre><code class="json">
+# Kết Quả :
+
+{   
+    "status": "200",
+    "data": {
+        "ID": 2,
+        "data": "https://dl.dropboxusercontent.com/s/lsaytbxqnqu23sl/cuoicungthi.mp3",
+        "name": "Cuối Cùng Thì -「Lo - Fi Version by 1 9 6 7」",
+        "author": "Jack - J97 x KProx"
+    },
+    "count": 4
+}
+
+
+                </code></pre>
+                <h4>Bảng Thông Tin Cần Gửi</h4>
+            <table class="central-overflow-x">
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Loại</th>
+                    <th>Nội Dung</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>apikey</td>
+                    <td>String</td>
+                    <td>API Key Của Bạn.</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>String</td>
+                    <td>Loại Nhạc.</td>
+                </tr>
+                </tbody>
+            </table>
+            <h4>Các Loại Nhạc</h4>
+            <table class="central-overflow-x">
+                <thead>
+                <tr>
+                    <th>Loại</th>
+                    <th>Nội Dung</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>chill</td>
+                    <td>Nhạc Chill</td>
+                </tr>
+                <tr>
+                    <td>remix</td>
+                    <td>Nhạc Remix</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section" id="content-mcstatus">
+            <h2>trạng thái srv minecraft</h2>
+            <pre><code class="bash">
+# Mẫu SRV Minecraft
+curl \
+https://api.shinthl09.repl.co/get/mcstatus?apikey=THLFree_7441046024&host=simpmc.net&port=25565 \
+-F 'apikey = your_api_key' \
+-F 'host = host_sv' \
+-F 'port = port_sv' \
+                </code></pre>
+            <p>
+                METHOD GET :<br>
+                <code class="higlighted break-word">https://api.shinthl09.repl.co/get/mcstatus</code>
+            </p>
+            <br>
+            <pre><code class="json">
+# Kết Quả :
+
+{   
+    "status": "200",
+    "hostname": "simpmc.net",
+    "port": "25565",
+    "address": "203.27.106.55",
+    "status": true,
+    "online": 93,
+    "max": 1000,
+    "version": "SimpMC",
+    "image": "http://status.mclive.eu/MC-STATUS/simpmc.net/25565/banner.png",
+    "msg": "Has Enable",
+    "author": "ShinTHL09, Nlam"
+}
+
+
+                </code></pre>
+                <h4>Bảng Thông Tin Cần Gửi</h4>
+            <table class="central-overflow-x">
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Loại</th>
+                    <th>Nội Dung</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>apikey</td>
+                    <td>String</td>
+                    <td>API Key Của Bạn.</td>
+                </tr>
+                <tr>
+                    <td>host</td>
+                    <td>String Or Integer</td>
+                    <td>Ip Của Server.</td>
+                </tr>
+                <tr>
+                    <td>port</td>
+                    <td>Integer</td>
+                    <td>Port Của Server.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section" id="content-geoip">
+            <h2>xem thông tin ip</h2>
+            <pre><code class="bash">
+# Mẫu Thông Tin IP
+curl \
+https://api.shinthl09.repl.co/get/geoip?apikey=THLFree_7441046024&host=1.1.1.1 \
+-F 'apikey = your_api_key' \
+-F 'host = host_sv' \
+-F 'port = port_sv' \
+                </code></pre>
+            <p>
+                METHOD GET :<br>
+                <code class="higlighted break-word">https://api.shinthl09.repl.co/get/geoip</code>
+            </p>
+            <br>
+            <pre><code class="json">
+# Kết Quả :
+
+{
+    "status": 200,
+    "message": "successful",
+    "country": "United States",
+    "countrycode": "US",
+    "city": "Los Angeles",
+    "isp": "APNIC Research and Development",
+    "lat": "34.05361",
+    "lon": "-118.24550",
+    "query": "1.1.1.1",
+    "author": "ShinTHL09, Nlam"
+}
+
+
+                </code></pre>
+                <h4>Bảng Thông Tin Cần Gửi</h4>
+            <table class="central-overflow-x">
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Loại</th>
+                    <th>Nội Dung</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>apikey</td>
+                    <td>String</td>
+                    <td>API Key Của Bạn.</td>
+                </tr>
+                <tr>
+                    <td>host</td>
+                    <td>String Or Integer</td>
+                    <td>Ip Cần Kiểm Tra.</td>
                 </tr>
                 </tbody>
             </table>
